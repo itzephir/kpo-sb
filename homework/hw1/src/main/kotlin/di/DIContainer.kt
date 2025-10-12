@@ -9,8 +9,7 @@ class DIContainer {
 
     private val classKeys = mutableMapOf<String, String>()
 
-    @PublishedApi
-    internal fun register(key: String, definition: DIDefinition<Any>): Either<DIDefinitionAlreadyDefinedError, Unit> =
+    private fun register(key: String, definition: DIDefinition<Any>): Either<DIDefinitionAlreadyDefinedError, Unit> =
         either {
             if (key in definitions) {
                 raise(DIDefinitionAlreadyDefinedError(key))
@@ -18,8 +17,7 @@ class DIContainer {
             definitions[key] = definition
         }
 
-    @PublishedApi
-    internal fun get(key: String): Either<DIDefinitionNotFoundError, Any> = either {
+    private fun get(key: String): Either<DIDefinitionNotFoundError, Any> = either {
         if (key !in definitions) raise(DIDefinitionNotFoundError(key))
         definitions.getValue(key).get()
     }
