@@ -7,7 +7,7 @@ RUN gradle dependencies --refresh-dependencies && \
     gradle build -x test --no-daemon
 
 # Run stage
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
