@@ -25,6 +25,7 @@ class StoreServiceImpl(
         logger.info { "Saving $meta" }
         println(bytes.decodeToString())
         Works.insert {
+            it[id] = meta.uuid.toJavaUuid()
             it[name] = meta.name
             it[author] = meta.author
             it[type] = meta.type

@@ -10,7 +10,7 @@ import java.nio.file.Files
 import kotlin.io.path.exists
 
 class WorkStorage(private val fileSystem: FileSystem) {
-    private val path = java.nio.file.Paths.get("/Users/ephir/works")
+    private val path = java.nio.file.Paths.get("works")
     private val folder = (if (!path.exists()) {
         Files.createDirectory(path)
     } else path).toAbsolutePath().toString().let {

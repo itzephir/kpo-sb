@@ -11,7 +11,7 @@ group = "ru.hse.analyse"
 version = "1.0-SNAPSHOT"
 
 application {
-    mainClass = "ru.hse.analyse.Application.kt"
+    mainClass = "io.ktor.server.netty.EngineMain"
 }
 
 dependencies {
