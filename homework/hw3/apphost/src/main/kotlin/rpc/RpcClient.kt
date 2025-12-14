@@ -1,0 +1,17 @@
+package ru.hse.apphost.rpc
+
+import kotlinx.rpc.RpcClient
+import kotlinx.rpc.krpc.ktor.client.rpc
+import kotlinx.rpc.krpc.ktor.client.rpcConfig
+import kotlinx.rpc.krpc.serialization.protobuf.protobuf
+import kotlinx.serialization.ExperimentalSerializationApi
+import ru.hse.apphost.http.httpClient
+
+@OptIn(ExperimentalSerializationApi::class)
+fun rpcClient(url: String): RpcClient = httpClient.rpc(url) {
+    rpcConfig {
+        serialization {
+            protobuf()
+        }
+    }
+}
