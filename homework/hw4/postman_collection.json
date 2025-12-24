@@ -1,0 +1,180 @@
+{
+	"info": {
+		"name": "HW4 Microservices API",
+		"description": "API collection for Apphost (API Gateway) - all requests go through port 8080",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Payments Service",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "user123",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/accounts",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["accounts"]
+						}
+					}
+				},
+				{
+					"name": "Topup Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "user123",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": \"100.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounts/topup",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["accounts", "topup"]
+						}
+					}
+				},
+				{
+					"name": "Get Balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "user123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/accounts/balance",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["accounts", "balance"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders Service",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "user123",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": \"50.00\",\n  \"description\": \"Test order\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["orders"]
+						}
+					}
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "user123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["orders"]
+						}
+					}
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "user123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders/{{orderId}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["orders", "{{orderId}}"],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "",
+									"type": "string"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
+
