@@ -1,0 +1,20 @@
+ktor:
+  application:
+    modules:
+      - ru.hse.payments.ApplicationKt.module
+  deployment:
+    port: 8081
+
+postgres:
+  url: ${DB_URL:jdbc:postgresql://localhost:5432/payments_db}
+  username: ${DB_USERNAME:admin}
+  password: ${DB_PASSWORD:password}
+  driver: org.postgresql.Driver
+  maximumPoolSize: 5
+
+kafka:
+  bootstrapServers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  topics:
+    paymentRequest: payment-request
+    paymentStatus: payment-status
+
