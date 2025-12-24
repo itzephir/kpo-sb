@@ -1,0 +1,19 @@
+plagiarism:
+  tolerance: ${PLAGIARISM_TOLERANCE:0.9}
+ktor:
+  application:
+    modules:
+      - ru.hse.analyse.ApplicationKt.module
+  deployment:
+    port: 8081
+rpc:
+  store:
+    url: ${STORE_URL:ws://localhost:8082/services}
+postgres:
+  url: ${DB_URL:jdbc:postgresql://localhost:5432/hw}
+  username: ${DB_USERNAME:user}
+  password: ${DB_PASSWORD:pass}
+  driver: org.postgresql.Driver
+  maximumPoolSize: 5
+  autoCommit: false
+  transactionIsolation: TRANSACTION_REPEATABLE_READ
